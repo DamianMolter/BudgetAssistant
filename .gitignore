@@ -35,8 +35,8 @@
 ks-strukt.cpp
 bin/
 obj/
-.cbp
-.depend
-.layout
-.cscope_file_list
-.txt
+*.cbp
+*.depend
+*.layout
+*.cscope_file_list
+*.xml
