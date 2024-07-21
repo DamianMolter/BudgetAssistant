@@ -65,3 +65,41 @@ void UserManager :: displayAllUsers() {
         cout << users[i].getSurname() << endl << endl;
     }
 }
+
+int UserManager :: loginUser(){
+    string userName = "", password = "";
+
+    cout << endl << "Podaj login: ";
+    userName = Utils:: loadLine();
+
+    for(size_t i = 0; i < users.size(); i++) {
+        if (users[i].getUserName() == userName) {
+            for (int attemptsRemained = 3; attemptsRemained > 0; attemptsRemained--) {
+                cout << "Podaj haslo. Pozostalo prob: " << attemptsRemained << ": ";
+                password = Utils :: loadLine();
+
+                if (users[i].getPassword() == password) {
+                    cout << endl << "Zalogowales sie." << endl << endl;
+                    system("pause");
+                    loggedUserId = users[i].getUserId();
+                    return loggedUserId;
+                }
+            }
+            cout << "Wprowadzono 3 razy bledne haslo." << endl;
+            system("pause");
+            return 0;
+        }
+    }
+    cout << "Nie ma uzytkownika z takim loginem" << endl << endl;
+    system("pause");
+    return 0;
+
+}
+
+bool UserManager :: isUserLogged() {
+    if(loggedUserId > 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
