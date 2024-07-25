@@ -5,7 +5,7 @@
     <id>UMLClass</id>
     <coordinates>
       <x>72</x>
-      <y>486</y>
+      <y>477</y>
       <w>225</w>
       <h>252</h>
     </coordinates>
@@ -33,7 +33,7 @@
     <id>UMLClass</id>
     <coordinates>
       <x>369</x>
-      <y>729</y>
+      <y>720</y>
       <w>243</w>
       <h>189</h>
     </coordinates>
@@ -41,8 +41,8 @@
 --
 LOGGED_IN_USER_ID : integer
 --
-+ OperationManager()
-+ ~OperationManager()
++ BudgetManager()
++ ~BudgetManager()
 + addIncome() : void
 + addExpense() : void
 + showLastMonthSummary() : void
@@ -54,7 +54,7 @@ LOGGED_IN_USER_ID : integer
     <id>UMLClass</id>
     <coordinates>
       <x>351</x>
-      <y>153</y>
+      <y>144</y>
       <w>252</w>
       <h>225</h>
     </coordinates>
@@ -67,14 +67,15 @@ LOGGED_IN_USER_ID : integer
 + registerUser() : void
 + loginUser() : void
 + changePassword() : void
-+ logoutUser() : void</panel_attributes>
++ logoutUser() : void
++ isUserLogged() : bool</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
       <x>396</x>
-      <y>477</y>
+      <y>468</y>
       <w>171</w>
       <h>117</h>
     </coordinates>
@@ -90,7 +91,7 @@ LOGGED_IN_USER_ID : integer
     <id>UMLClass</id>
     <coordinates>
       <x>657</x>
-      <y>207</y>
+      <y>198</y>
       <w>324</w>
       <h>225</h>
     </coordinates>
@@ -106,7 +107,7 @@ LOGGED_IN_USER_ID : integer
     <id>UMLClass</id>
     <coordinates>
       <x>1170</x>
-      <y>396</y>
+      <y>387</y>
       <w>162</w>
       <h>180</h>
     </coordinates>
@@ -126,13 +127,16 @@ LOGGED_IN_USER_ID : integer
     <id>UMLClass</id>
     <coordinates>
       <x>702</x>
-      <y>504</y>
+      <y>495</y>
       <w>288</w>
       <h>153</h>
     </coordinates>
-    <panel_attributes>OpertationFile
+    <panel_attributes>OperationFile
 --
 + OperationFile (string fileName)
++ loadIncomes() : vector &lt;Operation&gt;
++ loadExpenses() : vector &lt;Operation&gt;
++ addIncomeToFile() : void
 + addExpenseToFile() : void
 + loadLoggedUserExpensesFromFile() : vector &lt;Operation&gt;</panel_attributes>
     <additional_attributes/>
@@ -141,7 +145,7 @@ LOGGED_IN_USER_ID : integer
     <id>Relation</id>
     <coordinates>
       <x>972</x>
-      <y>342</y>
+      <y>333</y>
       <w>216</w>
       <h>117</h>
     </coordinates>
@@ -153,7 +157,7 @@ LOGGED_IN_USER_ID : integer
     <id>Relation</id>
     <coordinates>
       <x>981</x>
-      <y>495</y>
+      <y>486</y>
       <w>207</w>
       <h>126</h>
     </coordinates>
@@ -165,7 +169,7 @@ LOGGED_IN_USER_ID : integer
     <id>Relation</id>
     <coordinates>
       <x>594</x>
-      <y>243</y>
+      <y>234</y>
       <w>81</w>
       <h>81</h>
     </coordinates>
@@ -176,7 +180,7 @@ LOGGED_IN_USER_ID : integer
     <id>Relation</id>
     <coordinates>
       <x>594</x>
-      <y>567</y>
+      <y>558</y>
       <w>126</w>
       <h>180</h>
     </coordinates>
@@ -187,7 +191,7 @@ LOGGED_IN_USER_ID : integer
     <id>Relation</id>
     <coordinates>
       <x>558</x>
-      <y>423</y>
+      <y>414</y>
       <w>117</w>
       <h>90</h>
     </coordinates>
@@ -198,7 +202,7 @@ LOGGED_IN_USER_ID : integer
     <id>Relation</id>
     <coordinates>
       <x>477</x>
-      <y>585</y>
+      <y>576</y>
       <w>45</w>
       <h>162</h>
     </coordinates>
@@ -209,7 +213,7 @@ LOGGED_IN_USER_ID : integer
     <id>Relation</id>
     <coordinates>
       <x>468</x>
-      <y>369</y>
+      <y>360</y>
       <w>45</w>
       <h>126</h>
     </coordinates>
@@ -220,7 +224,7 @@ LOGGED_IN_USER_ID : integer
     <id>Relation</id>
     <coordinates>
       <x>261</x>
-      <y>288</y>
+      <y>279</y>
       <w>108</w>
       <h>216</h>
     </coordinates>
@@ -231,7 +235,7 @@ LOGGED_IN_USER_ID : integer
     <id>Relation</id>
     <coordinates>
       <x>261</x>
-      <y>729</y>
+      <y>720</y>
       <w>126</w>
       <h>45</h>
     </coordinates>
@@ -242,7 +246,7 @@ LOGGED_IN_USER_ID : integer
     <id>UMLClass</id>
     <coordinates>
       <x>657</x>
-      <y>9</y>
+      <y>0</y>
       <w>207</w>
       <h>126</h>
     </coordinates>
@@ -259,7 +263,7 @@ LOGGED_IN_USER_ID : integer
     <id>Relation</id>
     <coordinates>
       <x>486</x>
-      <y>126</y>
+      <y>117</y>
       <w>279</w>
       <h>45</h>
     </coordinates>
@@ -270,7 +274,7 @@ LOGGED_IN_USER_ID : integer
     <id>Relation</id>
     <coordinates>
       <x>801</x>
-      <y>126</y>
+      <y>117</y>
       <w>54</w>
       <h>99</h>
     </coordinates>
@@ -281,7 +285,7 @@ LOGGED_IN_USER_ID : integer
     <id>UMLClass</id>
     <coordinates>
       <x>711</x>
-      <y>756</y>
+      <y>747</y>
       <w>171</w>
       <h>117</h>
     </coordinates>
@@ -298,7 +302,7 @@ LOGGED_IN_USER_ID : integer
     <id>Relation</id>
     <coordinates>
       <x>603</x>
-      <y>783</y>
+      <y>774</y>
       <w>126</w>
       <h>90</h>
     </coordinates>
@@ -309,7 +313,7 @@ LOGGED_IN_USER_ID : integer
     <id>Relation</id>
     <coordinates>
       <x>738</x>
-      <y>648</y>
+      <y>639</y>
       <w>36</w>
       <h>126</h>
     </coordinates>
@@ -320,7 +324,7 @@ LOGGED_IN_USER_ID : integer
     <id>UMLClass</id>
     <coordinates>
       <x>378</x>
-      <y>999</y>
+      <y>990</y>
       <w>162</w>
       <h>153</h>
     </coordinates>
@@ -333,7 +337,7 @@ LOGGED_IN_USER_ID : integer
     <id>Relation</id>
     <coordinates>
       <x>450</x>
-      <y>909</y>
+      <y>900</y>
       <w>54</w>
       <h>108</h>
     </coordinates>

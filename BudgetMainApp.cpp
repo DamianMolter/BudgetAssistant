@@ -11,6 +11,10 @@ void BudgetMainApp :: loginUser(){
     }
 }
 
+void BudgetMainApp :: addIncome(){
+    budgetManager->addIncome();
+}
+
 void BudgetMainApp :: logoutUser(){
     delete budgetManager;
     budgetManager = NULL;
