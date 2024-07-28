@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include "Markup.h"
 
 using namespace std;
 
@@ -9,8 +10,11 @@ class File{
     int lastId;
 
 public:
+    File(){
+        lastId = 0;
+    }
     string getFileName();
-    int getLastId();
+    int getLastId(string fileName);
 
 
 

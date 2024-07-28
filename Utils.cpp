@@ -6,14 +6,12 @@ string Utils :: loadLine(){
     return input;
 };
 
-float Utils :: convertFromStringToMoneyAmount(string input){
+string Utils :: changeComaToDot(string input){
     size_t comaPosition = input.find(',');
 
     if(comaPosition != string::npos){
-        input.erase(comaPosition);
+        input.erase(comaPosition, 1);
         input.insert(comaPosition, 1, '.');
     }
-
-    float amount = stof(input);
-    return round(amount * 100)/100;
+    return input;
 }

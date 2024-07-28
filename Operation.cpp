@@ -9,10 +9,13 @@ int Operation :: getUserId(){
 int Operation :: getDate(){
     return date;
 }
+string Operation :: getUserDate(){
+    return userDate;
+}
 string Operation :: getItem(){
     return item;
 }
-float Operation :: getAmount(){
+string Operation :: getAmount(){
     return amount;
 }
 
@@ -25,9 +28,12 @@ void Operation :: setUserId(int newUserId){
 void Operation :: setDate(int newDate){
     this -> date = newDate;
 }
+void Operation :: setUserDate(string newUserDate){
+    this -> userDate = newUserDate;
+}
 void Operation :: setItem(string newItem){
     this -> item = newItem;
 }
-void Operation :: setAmount(float newAmount){
+void Operation :: setAmount(string newAmount){
     this -> amount = newAmount;
 }

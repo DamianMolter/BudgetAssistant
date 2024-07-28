@@ -1,16 +1,13 @@
 #include "BudgetManager.h"
 
-
-
-void BudgetManager :: addIncome(){
+void BudgetManager :: addOperation(string fileName){
 
     system("cls");
     cout << " >>> DODAWANIE NOWEGO PRZYCHODU <<<" << endl << endl;
     Operation operation;
     operation = giveNewOperationData(LOGGED_USER_ID);
     incomes.push_back(operation);
-    //tu skonczylem i tutaj wznowie dzielo
-    //recipientFile.addRecipientToFile(operation);
+    operationFile.addOperationToFile(operation, fileName);
     lastOperationId++;
 }
 
@@ -19,7 +16,7 @@ Operation BudgetManager :: giveNewOperationData(int loggedUserId) {
     string input;
     int date;
     string item;
-    float amount;
+    string amount;
     operation.setId(lastOperationId + 1);
     operation.setUserId(LOGGED_USER_ID);
 
@@ -29,6 +26,7 @@ Operation BudgetManager :: giveNewOperationData(int loggedUserId) {
         cout << "Data jest nieprawidlowa! Podaj ponownie date!" << endl;
         input = Utils :: loadLine();
     }
+    operation.setUserDate(input);
     date = DateMethods :: convertDateToNumericForm(input);
     operation.setDate(date);
 
@@ -38,9 +36,19 @@ Operation BudgetManager :: giveNewOperationData(int loggedUserId) {
 
     cout << "Podaj kwote: ";
     input = Utils:: loadLine();
-    amount = Utils :: convertFromStringToMoneyAmount(input);
-    operation.setAmount(amount);
+    input = Utils :: changeComaToDot(input);
+    operation.setAmount(input);
 
     return operation;
+}
+
+void BudgetManager :: displayAllIncomes(){
+
+    for(size_t i = 0; i < incomes.size(); i++){
+        cout << "Id operacji: " << incomes[i].getId() << " Data operacji: " << incomes[i].getDate() << endl;
+        cout << "Tytul operacji: " << incomes[i].getItem() << " Kwota: " << incomes[i].getAmount() << endl << endl;
+
+    }
+
 }
 

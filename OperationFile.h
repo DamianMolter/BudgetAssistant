@@ -10,6 +10,8 @@ using namespace std;
 class OperationFile : public File{
 
 public:
-    vector <Operation> loadOperations(string fileName);
+    OperationFile(){};
+    vector <Operation> loadOperations(string fileName, int loggedUserId);
+    void addOperationToFile(Operation operation, string fileName);
 
 };

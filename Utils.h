@@ -8,6 +8,6 @@ using namespace std;
 class Utils{
 public:
     static string loadLine();
-    static float convertFromStringToMoneyAmount(string amount);
+    static string changeComaToDot(string input);
 
 };;
