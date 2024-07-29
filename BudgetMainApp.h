@@ -20,6 +20,9 @@ public:
 
     void registerUser();
     void loginUser();
+    void addIncome();
+    void addExpense();
+    void displayAllIncomes();
     void logoutUser();
     void displayAllUsers();
 

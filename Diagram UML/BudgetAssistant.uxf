@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.3.0">
-  <zoom_level>9</zoom_level>
+  <zoom_level>8</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>72</x>
-      <y>486</y>
-      <w>225</w>
-      <h>252</h>
+      <x>392</x>
+      <y>504</y>
+      <w>200</w>
+      <h>224</h>
     </coordinates>
     <panel_attributes>BudgetMainApp
 --
@@ -32,19 +32,18 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>369</x>
-      <y>729</y>
-      <w>243</w>
-      <h>189</h>
+      <x>656</x>
+      <y>720</y>
+      <w>216</w>
+      <h>168</h>
     </coordinates>
     <panel_attributes>BudgetManager
 --
 LOGGED_IN_USER_ID : integer
 --
-+ OperationManager()
-+ ~OperationManager()
-+ addIncome() : void
-+ addExpense() : void
++ BudgetManager()
++ ~BudgetManager()
++ addOperation() : void
 + showLastMonthSummary() : void
 + showRecentMonthSummary() : void
 + showCustomSummary() : void</panel_attributes>
@@ -53,10 +52,10 @@ LOGGED_IN_USER_ID : integer
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>351</x>
-      <y>153</y>
-      <w>252</w>
-      <h>225</h>
+      <x>640</x>
+      <y>208</y>
+      <w>224</w>
+      <h>200</h>
     </coordinates>
     <panel_attributes>UserManager
 --
@@ -67,16 +66,17 @@ LOGGED_IN_USER_ID : integer
 + registerUser() : void
 + loginUser() : void
 + changePassword() : void
-+ logoutUser() : void</panel_attributes>
++ logoutUser() : void
++ isUserLogged() : bool</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>396</x>
-      <y>477</y>
-      <w>171</w>
-      <h>117</h>
+      <x>680</x>
+      <y>496</y>
+      <w>152</w>
+      <h>104</h>
     </coordinates>
     <panel_attributes>Utils
 --
@@ -89,10 +89,10 @@ LOGGED_IN_USER_ID : integer
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>657</x>
-      <y>207</y>
-      <w>324</w>
-      <h>225</h>
+      <x>912</x>
+      <y>256</y>
+      <w>288</w>
+      <h>200</h>
     </coordinates>
     <panel_attributes>UserFile
 --
@@ -105,16 +105,16 @@ LOGGED_IN_USER_ID : integer
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1170</x>
-      <y>396</y>
-      <w>162</w>
-      <h>180</h>
+      <x>1368</x>
+      <y>424</y>
+      <w>144</w>
+      <h>160</h>
     </coordinates>
     <panel_attributes>	File
 --
 # FILE_NAME : const string
-# listId : integer
-# xmlDoc : XMLDocument
+# lastId : integer
+- getLastIdFromFile() : int
 --
 # File(string fileName)
 # getFileName() : string
@@ -125,25 +125,26 @@ LOGGED_IN_USER_ID : integer
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>702</x>
-      <y>504</y>
-      <w>288</w>
-      <h>153</h>
+      <x>952</x>
+      <y>520</y>
+      <w>256</w>
+      <h>136</h>
     </coordinates>
-    <panel_attributes>OpertationFile
+    <panel_attributes>OperationFile
 --
 + OperationFile (string fileName)
-+ addExpenseToFile() : void
++ loadOperations() : vector &lt;Operation&gt;
++ addOperationToFile() : void
 + loadLoggedUserExpensesFromFile() : vector &lt;Operation&gt;</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>972</x>
-      <y>342</y>
-      <w>216</w>
-      <h>117</h>
+      <x>1192</x>
+      <y>376</y>
+      <w>192</w>
+      <h>104</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 &lt;&lt;inheritance&gt;&gt;</panel_attributes>
@@ -152,10 +153,10 @@ LOGGED_IN_USER_ID : integer
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>981</x>
-      <y>495</y>
-      <w>207</w>
-      <h>126</h>
+      <x>1200</x>
+      <y>512</y>
+      <w>184</w>
+      <h>112</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 &lt;&lt;inheritance&gt;&gt;</panel_attributes>
@@ -164,10 +165,10 @@ LOGGED_IN_USER_ID : integer
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>594</x>
-      <y>243</y>
-      <w>81</w>
-      <h>81</h>
+      <x>856</x>
+      <y>288</y>
+      <w>72</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;70.0;70.0</additional_attributes>
@@ -175,10 +176,10 @@ LOGGED_IN_USER_ID : integer
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>594</x>
-      <y>567</y>
-      <w>126</w>
-      <h>180</h>
+      <x>856</x>
+      <y>576</y>
+      <w>112</w>
+      <h>160</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;180.0;120.0;10.0</additional_attributes>
@@ -186,10 +187,10 @@ LOGGED_IN_USER_ID : integer
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>558</x>
-      <y>423</y>
-      <w>117</w>
-      <h>90</h>
+      <x>824</x>
+      <y>448</y>
+      <w>104</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>110.0;10.0;10.0;80.0</additional_attributes>
@@ -197,10 +198,10 @@ LOGGED_IN_USER_ID : integer
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>477</x>
-      <y>585</y>
-      <w>45</w>
-      <h>162</h>
+      <x>752</x>
+      <y>592</y>
+      <w>40</w>
+      <h>144</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>30.0;160.0;10.0;10.0</additional_attributes>
@@ -208,10 +209,10 @@ LOGGED_IN_USER_ID : integer
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>468</x>
-      <y>369</y>
-      <w>45</w>
-      <h>126</h>
+      <x>744</x>
+      <y>400</y>
+      <w>40</w>
+      <h>112</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;30.0;120.0</additional_attributes>
@@ -219,10 +220,10 @@ LOGGED_IN_USER_ID : integer
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>261</x>
-      <y>288</y>
-      <w>108</w>
-      <h>216</h>
+      <x>560</x>
+      <y>328</y>
+      <w>96</w>
+      <h>192</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;220.0;100.0;10.0</additional_attributes>
@@ -230,10 +231,10 @@ LOGGED_IN_USER_ID : integer
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>261</x>
-      <y>729</y>
-      <w>126</w>
-      <h>45</h>
+      <x>560</x>
+      <y>720</y>
+      <w>112</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;120.0;30.0</additional_attributes>
@@ -241,10 +242,10 @@ LOGGED_IN_USER_ID : integer
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>657</x>
-      <y>9</y>
-      <w>207</w>
-      <h>126</h>
+      <x>912</x>
+      <y>80</y>
+      <w>184</w>
+      <h>112</h>
     </coordinates>
     <panel_attributes>User
 --
@@ -258,10 +259,10 @@ LOGGED_IN_USER_ID : integer
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>486</x>
-      <y>126</y>
-      <w>279</w>
-      <h>45</h>
+      <x>760</x>
+      <y>184</y>
+      <w>248</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;30.0;290.0;10.0</additional_attributes>
@@ -269,10 +270,10 @@ LOGGED_IN_USER_ID : integer
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>801</x>
-      <y>126</y>
-      <w>54</w>
-      <h>99</h>
+      <x>1040</x>
+      <y>184</y>
+      <w>48</w>
+      <h>88</h>
     </coordinates>
     <panel_attributes>lt=&lt;..</panel_attributes>
     <additional_attributes>10.0;90.0;40.0;10.0</additional_attributes>
@@ -280,10 +281,10 @@ LOGGED_IN_USER_ID : integer
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>711</x>
-      <y>756</y>
-      <w>171</w>
-      <h>117</h>
+      <x>960</x>
+      <y>744</y>
+      <w>152</w>
+      <h>104</h>
     </coordinates>
     <panel_attributes>Operation
 --
@@ -297,10 +298,10 @@ LOGGED_IN_USER_ID : integer
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>603</x>
-      <y>783</y>
-      <w>126</w>
-      <h>90</h>
+      <x>864</x>
+      <y>768</y>
+      <w>112</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;80.0;120.0;10.0</additional_attributes>
@@ -308,10 +309,10 @@ LOGGED_IN_USER_ID : integer
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>738</x>
+      <x>984</x>
       <y>648</y>
-      <w>36</w>
-      <h>126</h>
+      <w>32</w>
+      <h>112</h>
     </coordinates>
     <panel_attributes>lt=&lt;..</panel_attributes>
     <additional_attributes>20.0;10.0;10.0;120.0</additional_attributes>
@@ -319,10 +320,10 @@ LOGGED_IN_USER_ID : integer
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>378</x>
-      <y>999</y>
-      <w>162</w>
-      <h>153</h>
+      <x>664</x>
+      <y>960</y>
+      <w>144</w>
+      <h>136</h>
     </coordinates>
     <panel_attributes>DateMethods
 --
@@ -332,10 +333,10 @@ LOGGED_IN_USER_ID : integer
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>450</x>
-      <y>909</y>
-      <w>54</w>
-      <h>108</h>
+      <x>728</x>
+      <y>880</y>
+      <w>48</w>
+      <h>96</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;40.0;100.0</additional_attributes>

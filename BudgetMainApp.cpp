@@ -11,6 +11,18 @@ void BudgetMainApp :: loginUser(){
     }
 }
 
+void BudgetMainApp :: addIncome(){
+    budgetManager->addOperation("incomes.xml");
+}
+
+void BudgetMainApp :: addExpense(){
+    budgetManager->addOperation("expenses.xml");
+}
+
+void BudgetMainApp :: displayAllIncomes(){
+    budgetManager->displayAllIncomes();
+}
+
 void BudgetMainApp :: logoutUser(){
     delete budgetManager;
     budgetManager = NULL;
