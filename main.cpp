@@ -9,8 +9,7 @@ int main() {
     BudgetMainApp budgetMainApp("users.xml");
     budgetMainApp.displayAllUsers();
     budgetMainApp.loginUser();
-    budgetMainApp.addOperation();
-    //budgetMainApp.addOperation();
+    budgetMainApp.addExpense();
     budgetMainApp.displayAllIncomes();
 
 }
