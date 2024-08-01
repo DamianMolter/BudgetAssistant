@@ -8,9 +8,11 @@ using namespace std;
 class BudgetMainApp {
     UserManager userManager;
     BudgetManager *budgetManager;
+    const string INCOMES_FILE_NAME, EXPENSES_FILE_NAME;
 
 public:
-    BudgetMainApp(string userFileName): userManager(userFileName) {
+    BudgetMainApp(string userFileName, string incomesFileName, string expensesFileName)
+    :userManager(userFileName), INCOMES_FILE_NAME(incomesFileName), EXPENSES_FILE_NAME(expensesFileName) {
         budgetManager = NULL;
     };
     ~BudgetMainApp() {

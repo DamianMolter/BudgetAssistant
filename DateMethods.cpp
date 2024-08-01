@@ -2,17 +2,31 @@
 
 bool DateMethods :: isDateCorrect(string date) {
 
-    bool isDateCorect;
+    do {
+        if(!isDateFormatCorrect(date)) {
+            cout << "Data jest nieprawidlowa! Podaj ponownie date!" << endl;
+            date = Utils :: loadLine();
+        }
+
+    } while(!isDateFormatCorrect(date));
+
     size_t firstDashPosition = date.find_first_of('-');
     size_t secondDashPosition = date.find_last_of('-');
-    int year = stoi(date.substr(0, firstDashPosition));
-    int month = stoi(date.substr(firstDashPosition + 1, secondDashPosition - firstDashPosition - 1));
-    int day = stoi(date.substr(secondDashPosition + 1));
+    string year = date.substr(0, firstDashPosition);
+    string month = date.substr(firstDashPosition + 1, secondDashPosition - firstDashPosition - 1);
+    string day = date.substr(secondDashPosition + 1);
 
-    int monthLength = calculateMonthLength(year, month);
+    bool isDateCorect;
+
+    int yearInt = stoi(year);
+    int monthInt = stoi(month);
+    int dayInt = stoi(day);
 
 
-    if(firstDashPosition == 4 && year >= 2000 && month >= 1 && month <= 12 && day >= 0 && day <= monthLength) {
+    int monthLength = calculateMonthLength(yearInt, monthInt);
+
+
+    if(firstDashPosition == 4 && yearInt >= 2000 && monthInt >= 1 && monthInt <= 12 && dayInt >= 0 && dayInt <= monthLength) {
         isDateCorect = true;
     } else {
         isDateCorect = false;
@@ -45,7 +59,7 @@ int DateMethods :: calculateMonthLength(int year, int month) {
     return monthLength;
 }
 
-int DateMethods :: convertDateToNumericForm(string date){
+int DateMethods :: convertDateToNumericForm(string date) {
 
     int dateNumericForm;
     size_t firstDashPosition = date.find_first_of('-');
@@ -56,5 +70,15 @@ int DateMethods :: convertDateToNumericForm(string date){
 
     dateNumericForm = (year * 10000) + (month * 100) + day;
     return dateNumericForm;
+
+}
+
+bool DateMethods :: isDateFormatCorrect(string date) {
+
+    if((date[5] >= 48 && date[5] <= 49) && (date[8] >= 48 && date[8] <= 51) && date.length() == 10) {
+        return true;
+    } else {
+        return false;
+    }
 
 }

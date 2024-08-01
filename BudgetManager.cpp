@@ -3,7 +3,11 @@
 void BudgetManager :: addOperation(string fileName){
 
     system("cls");
-    cout << " >>> DODAWANIE NOWEGO PRZYCHODU <<<" << endl << endl;
+    if(fileName == "incomes.xml"){
+        cout << ">>> DODAWANIE NOWEGO PRZYCHODU <<<" << endl << endl;
+    } else { cout << ">>> DODAWANIE NOWEGO WYDATKU <<<" << endl << endl;
+ }
+
     Operation operation;
     operation = giveNewOperationData(LOGGED_USER_ID);
     incomes.push_back(operation);
