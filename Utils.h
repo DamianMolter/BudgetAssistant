@@ -9,5 +9,5 @@ class Utils{
 public:
     static string loadLine();
     static string changeComaToDot(string input);
-
+    static char loadCharacter();
 };;

@@ -23,8 +23,10 @@ public:
         expenses = operationFile.loadOperations(expensesFileName, LOGGED_USER_ID);
     };
 
-    void addOperation(string fileName);
+    void addIncome(string fileName);
+    void addExpense(string fileName);
     void displayAllIncomes();
+    void displayAllExpenses();
 
 
 };

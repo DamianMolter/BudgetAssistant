@@ -12,15 +12,19 @@ void BudgetMainApp :: loginUser(){
 }
 
 void BudgetMainApp :: addIncome(){
-    budgetManager->addOperation(INCOMES_FILE_NAME);
+    budgetManager->addIncome(INCOMES_FILE_NAME);
 }
 
 void BudgetMainApp :: addExpense(){
-    budgetManager->addOperation(EXPENSES_FILE_NAME);
+    budgetManager->addExpense(EXPENSES_FILE_NAME);
 }
 
 void BudgetMainApp :: displayAllIncomes(){
     budgetManager->displayAllIncomes();
+}
+
+void BudgetMainApp :: displayAllExpenses(){
+    budgetManager->displayAllExpenses();
 }
 
 void BudgetMainApp :: logoutUser(){

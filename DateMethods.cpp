@@ -2,21 +2,17 @@
 
 bool DateMethods :: isDateCorrect(string date) {
 
-    do {
-        if(!isDateFormatCorrect(date)) {
-            cout << "Data jest nieprawidlowa! Podaj ponownie date!" << endl;
-            date = Utils :: loadLine();
-        }
-
-    } while(!isDateFormatCorrect(date));
+    bool isDateCorect;
+    if(!isDateFormatCorrect(date)) {
+        isDateCorect = false;
+        return isDateCorect;
+    }
 
     size_t firstDashPosition = date.find_first_of('-');
     size_t secondDashPosition = date.find_last_of('-');
     string year = date.substr(0, firstDashPosition);
     string month = date.substr(firstDashPosition + 1, secondDashPosition - firstDashPosition - 1);
     string day = date.substr(secondDashPosition + 1);
-
-    bool isDateCorect;
 
     int yearInt = stoi(year);
     int monthInt = stoi(month);
@@ -81,4 +77,49 @@ bool DateMethods :: isDateFormatCorrect(string date) {
         return false;
     }
 
+}
+
+bool DateMethods :: wantedTodayDate() {
+    system("cls");
+    char choice;
+    cout << "Czy chcesz wprowadzic dzisiejsza date? t/n" << endl;
+
+    do {
+        choice = Utils :: loadCharacter();
+        switch(choice) {
+
+        case 't':
+            return true;
+        case 'n':
+            return false;
+        default:
+            cout << "Podaj wlasciwa odpowiedz!" << endl;
+            system("pause");
+
+        }
+    } while(choice != 't' || choice != 'n');
+}
+
+void DateMethods ::  addZeroToOneDigitMonthOrDay(string &input){
+    if(input.length() == 1){
+        input = '0' + input;
+    }
+}
+
+string DateMethods :: loadTodayDate(){
+
+    time_t timestamp;
+    time(&timestamp);
+    struct tm datetime = *localtime(&timestamp);
+
+    string year = to_string(datetime.tm_year + 1900);
+    string month = to_string(datetime.tm_mon + 1);
+    string day = to_string(datetime.tm_mday);
+
+    addZeroToOneDigitMonthOrDay(month);
+    addZeroToOneDigitMonthOrDay(day);
+
+    string date = year + '-' + month + '-' + day;
+
+    return date;
 }
