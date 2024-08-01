@@ -1,16 +1,21 @@
 #include "BudgetManager.h"
 
-void BudgetManager :: addOperation(string fileName){
+void BudgetManager :: addIncome(string fileName) {
 
     system("cls");
-    if(fileName == "incomes.xml"){
-        cout << ">>> DODAWANIE NOWEGO PRZYCHODU <<<" << endl << endl;
-    } else { cout << ">>> DODAWANIE NOWEGO WYDATKU <<<" << endl << endl;
- }
-
-    Operation operation;
-    operation = giveNewOperationData(LOGGED_USER_ID);
+    cout << ">>> DODAWANIE NOWEGO PRZYCHODU <<<" << endl << endl;
+    Operation operation = giveNewOperationData(LOGGED_USER_ID);
     incomes.push_back(operation);
+    operationFile.addOperationToFile(operation, fileName);
+    lastOperationId++;
+}
+
+void BudgetManager :: addExpense(string fileName) {
+
+    system("cls");
+    cout << ">>> DODAWANIE NOWEGO PRZYCHODU <<<" << endl << endl;
+    Operation operation = giveNewOperationData(LOGGED_USER_ID);
+    expenses.push_back(operation);
     operationFile.addOperationToFile(operation, fileName);
     lastOperationId++;
 }
@@ -24,12 +29,20 @@ Operation BudgetManager :: giveNewOperationData(int loggedUserId) {
     operation.setId(lastOperationId + 1);
     operation.setUserId(LOGGED_USER_ID);
 
-    cout << "Podaj date: ";
-    input = Utils :: loadLine();
-    while(!DateMethods :: isDateCorrect(input)){
-        cout << "Data jest nieprawidlowa! Podaj ponownie date!" << endl;
+    if(DateMethods :: wantedTodayDate()) {
+        input = DateMethods :: loadTodayDate();
+    } else {
+
+        cout << "Podaj date: ";
         input = Utils :: loadLine();
+        while(!DateMethods :: isDateCorrect(input)) {
+            cout << "Data jest nieprawidlowa! Podaj ponownie date!" << endl;
+            input = Utils :: loadLine();
+        }
+
     }
+
+
     operation.setUserDate(input);
     date = DateMethods :: convertDateToNumericForm(input);
     operation.setDate(date);
@@ -46,11 +59,26 @@ Operation BudgetManager :: giveNewOperationData(int loggedUserId) {
     return operation;
 }
 
-void BudgetManager :: displayAllIncomes(){
+void BudgetManager :: displayAllIncomes() {
+    cout << "==============================" << endl;
+    cout << "WYKAZ PRZYCHODOW:" << endl;
+    for(size_t i = 0; i < incomes.size(); i++) {
+        cout << "Id operacji: " << incomes[i].getId() << endl;
+        cout << "Data operacji: " << incomes[i].getUserDate() << endl;
+        cout << "Tytul operacji: " << incomes[i].getItem() << endl;
+        cout << "Kwota: " << incomes[i].getAmount() << endl << endl;
+    }
 
-    for(size_t i = 0; i < incomes.size(); i++){
-        cout << "Id operacji: " << incomes[i].getId() << " Data operacji: " << incomes[i].getDate() << endl;
-        cout << "Tytul operacji: " << incomes[i].getItem() << " Kwota: " << incomes[i].getAmount() << endl << endl;
+}
+
+void BudgetManager :: displayAllExpenses() {
+    cout << "==============================" << endl;
+    cout << "WYKAZ WYDATKOW:" << endl;
+    for(size_t i = 0; i < expenses.size(); i++) {
+        cout << "Id operacji: " << expenses[i].getId() << endl;
+        cout << "Data operacji: " << expenses[i].getUserDate() << endl;
+        cout << "Tytul operacji: " << expenses[i].getItem() << endl;
+        cout << "Kwota: " << expenses[i].getAmount() << endl << endl;
 
     }
 

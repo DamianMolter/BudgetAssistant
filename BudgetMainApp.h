@@ -25,8 +25,10 @@ public:
     void addIncome();
     void addExpense();
     void displayAllIncomes();
+    void displayAllExpenses();
     void logoutUser();
     void displayAllUsers();
+
 
 
 };

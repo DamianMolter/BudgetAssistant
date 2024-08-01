@@ -8,13 +8,14 @@ using namespace std;
 
 class UserManager{
 
+    int loggedUserId;
     vector <User> users;
     UserFile userFile;
     User giveNewUserData();
     bool userNameExists(string userName);
     int getNewUserId();
     vector <User> loadUsersFromFile();
-    int loggedUserId;
+
 
 public:
     UserManager(string userFileName) : userFile(userFileName){

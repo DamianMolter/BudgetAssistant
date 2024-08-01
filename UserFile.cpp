@@ -5,6 +5,7 @@ void UserFile :: addUserToFile(User user){
     CMarkup userFile;
     bool userFileExists = userFile.Load("users.xml");
     if(!userFileExists){
+        userFile.SetDoc("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n");
         userFile.AddElem("Users");
     }
     userFile.FindElem();
