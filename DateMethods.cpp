@@ -4,7 +4,7 @@ bool DateMethods :: isDateCorrect(string date) {
 
     do {
         if(!isDateFormatCorrect(date)) {
-            cout << "Podales nieprawidlowa date. Sproboj ponownie!" << endl;
+            cout << "Data jest nieprawidlowa! Podaj ponownie date!" << endl;
             date = Utils :: loadLine();
         }
 
@@ -75,7 +75,7 @@ int DateMethods :: convertDateToNumericForm(string date) {
 
 bool DateMethods :: isDateFormatCorrect(string date) {
 
-    if((date[5] >= 48 && date[5] <= 49) && (date[8] >= 48 && date[8] <= 51)) {
+    if((date[5] >= 48 && date[5] <= 49) && (date[8] >= 48 && date[8] <= 51) && date.length() == 10) {
         return true;
     } else {
         return false;

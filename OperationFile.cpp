@@ -49,7 +49,7 @@ void OperationFile :: addOperationToFile(Operation operation, string fileName) {
     if(!fileExists) {
 
         operationFile.SetDoc("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n");
-        operationFile.AddElem("Incomes");
+        operationFile.AddElem("Operations");
 
     }
     operationFile.FindElem();

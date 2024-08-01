@@ -7,16 +7,16 @@ void BudgetMainApp :: registerUser(){
 void BudgetMainApp :: loginUser(){
     int loggedUserId = userManager.loginUser();
     if(userManager.isUserLogged()){
-        budgetManager = new BudgetManager(loggedUserId);
+        budgetManager = new BudgetManager(loggedUserId, INCOMES_FILE_NAME, EXPENSES_FILE_NAME);
     }
 }
 
 void BudgetMainApp :: addIncome(){
-    budgetManager->addOperation("incomes.xml");
+    budgetManager->addOperation(INCOMES_FILE_NAME);
 }
 
 void BudgetMainApp :: addExpense(){
-    budgetManager->addOperation("expenses.xml");
+    budgetManager->addOperation(EXPENSES_FILE_NAME);
 }
 
 void BudgetMainApp :: displayAllIncomes(){

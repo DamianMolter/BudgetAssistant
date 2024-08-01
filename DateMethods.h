@@ -11,7 +11,4 @@ class DateMethods{
 public:
     static bool isDateCorrect(string date);
     static int convertDateToNumericForm(string date);
-
-
-
 };

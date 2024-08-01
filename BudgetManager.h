@@ -17,10 +17,10 @@ class BudgetManager {
     Operation giveNewOperationData(int loggedUserId);
 
 public:
-    BudgetManager(int loggedUserId): LOGGED_USER_ID(loggedUserId) {
-        lastOperationId = operationFile.getLastId("incomes.xml", "expenses.xml");
-        incomes = operationFile.loadOperations("incomes.xml", LOGGED_USER_ID);
-        expenses = operationFile.loadOperations("expenses.xml", LOGGED_USER_ID);
+    BudgetManager(int loggedUserId, string incomesFileName, string expensesFileName): LOGGED_USER_ID(loggedUserId) {
+        lastOperationId = operationFile.getLastId(incomesFileName, expensesFileName);
+        incomes = operationFile.loadOperations(incomesFileName, LOGGED_USER_ID);
+        expenses = operationFile.loadOperations(expensesFileName, LOGGED_USER_ID);
     };
 
     void addOperation(string fileName);
