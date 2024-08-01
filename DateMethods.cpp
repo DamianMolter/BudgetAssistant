@@ -21,8 +21,17 @@ bool DateMethods :: isDateCorrect(string date) {
 
     int monthLength = calculateMonthLength(yearInt, monthInt);
 
+    time_t timestamp;
+    time(&timestamp);
+    struct tm datetime = *localtime(&timestamp);
 
-    if(firstDashPosition == 4 && yearInt >= 2000 && monthInt >= 1 && monthInt <= 12 && dayInt >= 0 && dayInt <= monthLength) {
+    int currentYear = datetime.tm_year + 1900;
+    int currentMonth = datetime.tm_mon + 1;
+
+    if(firstDashPosition == 4
+       && yearInt >= 2000 && yearInt <= currentYear
+       && monthInt >= 1 && monthInt <= currentMonth
+       && dayInt >= 1 && dayInt <= monthLength) {
         isDateCorect = true;
     } else {
         isDateCorect = false;
