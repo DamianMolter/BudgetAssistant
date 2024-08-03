@@ -1,5 +1,12 @@
 #include "DateMethods.h"
 
+void DateMethods :: validateDateStruct(struct tm &datetime){
+
+    datetime.tm_year += 1900;
+    datetime.tm_mon += 1;
+
+}
+
 bool DateMethods :: isDateCorrect(string date) {
 
     bool isDateCorect;
@@ -24,9 +31,10 @@ bool DateMethods :: isDateCorrect(string date) {
     time_t timestamp;
     time(&timestamp);
     struct tm datetime = *localtime(&timestamp);
+    validateDateStruct(datetime);
 
-    int currentYear = datetime.tm_year + 1900;
-    int currentMonth = datetime.tm_mon + 1;
+    int currentYear = datetime.tm_year;
+    int currentMonth = datetime.tm_mon;
 
     if(firstDashPosition == 4
             && yearInt >= 2000 && yearInt <= currentYear
@@ -120,9 +128,10 @@ string DateMethods :: loadTodayDate() {
     time_t timestamp;
     time(&timestamp);
     struct tm datetime = *localtime(&timestamp);
+    validateDateStruct(datetime);
 
-    string year = to_string(datetime.tm_year + 1900);
-    string month = to_string(datetime.tm_mon + 1);
+    string year = to_string(datetime.tm_year);
+    string month = to_string(datetime.tm_mon);
     string day = to_string(datetime.tm_mday);
 
     addZeroToOneDigitMonthOrDay(month);
@@ -141,9 +150,10 @@ int DateMethods :: getRecentMonthBegin() {
     time_t timestamp;
     time(&timestamp);
     struct tm datetime = *localtime(&timestamp);
+    validateDateStruct(datetime);
 
-    int year = datetime.tm_year + 1900;
-    int month = datetime.tm_mon + 1;
+    int year = datetime.tm_year;
+    int month = datetime.tm_mon;
 
     int recentMonthBegin = (year * 10000) + (month * 100);
     return recentMonthBegin;
@@ -153,9 +163,10 @@ int DateMethods :: calculateRecentMonthLength() {
     time_t timestamp;
     time(&timestamp);
     struct tm datetime = *localtime(&timestamp);
+    validateDateStruct(datetime);
 
-    int year = datetime.tm_year + 1900;
-    int month = datetime.tm_mon + 1;
+    int year = datetime.tm_year;
+    int month = datetime.tm_mon;
 
     int recentMonthLength = calculateMonthLength(year, month);
     return recentMonthLength;
@@ -166,9 +177,10 @@ int DateMethods :: getLastMonthBegin() {
     time_t timestamp;
     time(&timestamp);
     struct tm datetime = *localtime(&timestamp);
+    validateDateStruct(datetime);
 
-    int year = datetime.tm_year + 1900;
-    int month = datetime.tm_mon + 1;
+    int year = datetime.tm_year;
+    int month = datetime.tm_mon;
 
     if(month == 1) {
         year -= 1;
@@ -184,9 +196,10 @@ int DateMethods :: calculateLastMonthLength() {
     time_t timestamp;
     time(&timestamp);
     struct tm datetime = *localtime(&timestamp);
+    validateDateStruct(datetime);
 
-    int year = datetime.tm_year + 1900;
-    int month = datetime.tm_mon + 1;
+    int year = datetime.tm_year;
+    int month = datetime.tm_mon;
 
     if(month == 1) {
         year -= 1;

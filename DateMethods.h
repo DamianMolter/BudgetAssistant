@@ -12,6 +12,7 @@ class DateMethods{
     static int calculateMonthLength(int year, int month);
     static bool isDateFormatCorrect(string date);
     static void addZeroToOneDigitMonthOrDay(string &input);
+    static void validateDateStruct(struct tm &datetime);
 public:
     static bool isDateCorrect(string date);
     static int convertDateToNumericForm(string date);
