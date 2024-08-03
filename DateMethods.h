@@ -4,6 +4,7 @@
 #include <ctime>
 #include <windows.h>
 #include "Utils.h"
+#include "Operation.h"
 
 using namespace std;
 
@@ -16,4 +17,5 @@ public:
     static int convertDateToNumericForm(string date);
     static bool wantedTodayDate();
     static string loadTodayDate();
+    static bool compareDates(Operation operation1, Operation operation2);
 };

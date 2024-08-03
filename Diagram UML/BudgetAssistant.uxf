@@ -44,6 +44,7 @@
 - operationFile : OperationFile
 - incomes : vector &lt;Operation&gt;
 - expenses : vector &lt;Operation&gt;
+- displayOperation() : void
 --
 - giveNewOperationData() : Operation
 --
@@ -346,7 +347,8 @@
 + isDateCorrect() : bool
 + convertDateToNumericForm() : int
 + wantedTodayDate() : bool
-+ loadTodayDate() : string</panel_attributes>
++ loadTodayDate() : string
++ compareDates() : bool</panel_attributes>
     <additional_attributes/>
   </element>
   <element>

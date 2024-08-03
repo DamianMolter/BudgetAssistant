@@ -132,3 +132,7 @@ string DateMethods :: loadTodayDate(){
 
     return date;
 }
+
+bool DateMethods :: compareDates(Operation operation1, Operation operation2){
+    return operation1.getDate() < operation2.getDate();
+}

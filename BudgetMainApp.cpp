@@ -19,6 +19,10 @@ void BudgetMainApp :: addExpense(){
     budgetManager->addExpense(EXPENSES_FILE_NAME);
 }
 
+void BudgetMainApp :: showRecentMonthSummary(){
+    budgetManager->showRecentMonthSummary();
+}
+
 void BudgetMainApp :: displayAllIncomes(){
     budgetManager->displayAllIncomes();
 }

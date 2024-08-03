@@ -20,6 +20,19 @@ void BudgetManager :: addExpense(string fileName) {
     lastOperationId++;
 }
 
+void BudgetManager :: showRecentMonthSummary() {
+    cout << "==============================" << endl;
+    cout << "WYKAZ PRZYCHODOW:" << endl;
+    for (size_t i = 0; i < incomes.size(); i++) {
+        displayOperation(i, incomes);
+    }
+    cout << "==============================" << endl;
+    cout << "WYKAZ WYDATKOW:" << endl;
+    for (size_t j = 0; j < expenses.size(); j++) {
+        displayOperation(j, expenses);
+    }
+}
+
 Operation BudgetManager :: giveNewOperationData(int loggedUserId) {
     Operation operation;
     string input;
@@ -82,5 +95,12 @@ void BudgetManager :: displayAllExpenses() {
 
     }
 
+}
+
+void BudgetManager :: displayOperation(size_t index, vector <Operation> operations) {
+    cout << "Id operacji: " << operations[index].getId() << endl;
+    cout << "Data operacji: " << operations[index].getUserDate() << endl;
+    cout << "Tytul operacji: " << operations[index].getItem() << endl;
+    cout << "Kwota: " << operations[index].getAmount() << endl << endl;
 }
 
