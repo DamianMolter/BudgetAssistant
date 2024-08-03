@@ -2,6 +2,8 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cmath>
+#include <iomanip>
 #include "OperationFile.h"
 #include "DateMethods.h"
 #include "Utils.h"
@@ -30,8 +32,8 @@ public:
     void addIncome(string fileName);
     void addExpense(string fileName);
     void showRecentMonthSummary();
-    void displayAllIncomes();
-    void displayAllExpenses();
+    void displayAllIncomes();   //test
+    void displayAllExpenses();  //test
 
 
 };

@@ -21,16 +21,33 @@ void BudgetManager :: addExpense(string fileName) {
 }
 
 void BudgetManager :: showRecentMonthSummary() {
+
+    int beginOfRecentMonth = DateMethods :: getRecentMonthBegin();
+    int endOfRecentMonth = beginOfRecentMonth + DateMethods :: calculateRecentMonthLength() + 1;
+    float incomeSum = 0.00;
+    float expenseSum = 0.00;
+
     cout << "==============================" << endl;
     cout << "WYKAZ PRZYCHODOW:" << endl;
     for (size_t i = 0; i < incomes.size(); i++) {
-        displayOperation(i, incomes);
+        if(incomes[i].getDate() > beginOfRecentMonth && incomes[i].getDate() < endOfRecentMonth) {
+            displayOperation(i, incomes);
+            incomeSum += incomes[i].getAmount();
+        }
     }
     cout << "==============================" << endl;
     cout << "WYKAZ WYDATKOW:" << endl;
     for (size_t j = 0; j < expenses.size(); j++) {
-        displayOperation(j, expenses);
+        if(expenses[j].getDate() > beginOfRecentMonth && expenses[j].getDate() < endOfRecentMonth){
+            displayOperation(j, expenses);
+            expenseSum += expenses[j].getAmount();
+        }
     }
+
+
+    cout << "Suma przychodow to: " << fixed << setprecision(2) << incomeSum << endl;
+    cout << "Suma wydatkow to: " << expenseSum << endl;
+    cout << "Bilans za biezacy miesiac to: " << incomeSum - expenseSum << endl;
 }
 
 Operation BudgetManager :: giveNewOperationData(int loggedUserId) {
@@ -67,7 +84,7 @@ Operation BudgetManager :: giveNewOperationData(int loggedUserId) {
     cout << "Podaj kwote: ";
     input = Utils:: loadLine();
     input = Utils :: changeComaToDot(input);
-    operation.setAmount(input);
+    operation.setAmount(stof(input));
 
     return operation;
 }

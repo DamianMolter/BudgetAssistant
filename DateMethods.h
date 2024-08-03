@@ -18,4 +18,6 @@ public:
     static bool wantedTodayDate();
     static string loadTodayDate();
     static bool compareDates(Operation operation1, Operation operation2);
+    static int getRecentMonthBegin();
+    static int calculateRecentMonthLength();
 };

@@ -348,7 +348,9 @@
 + convertDateToNumericForm() : int
 + wantedTodayDate() : bool
 + loadTodayDate() : string
-+ compareDates() : bool</panel_attributes>
++ compareDates() : bool
++ getRecentMonthBegin() : int
++ calculateRecentMonthLength() : int</panel_attributes>
     <additional_attributes/>
   </element>
   <element>

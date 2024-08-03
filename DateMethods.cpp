@@ -136,3 +136,27 @@ string DateMethods :: loadTodayDate(){
 bool DateMethods :: compareDates(Operation operation1, Operation operation2){
     return operation1.getDate() < operation2.getDate();
 }
+
+int DateMethods :: getRecentMonthBegin(){
+    time_t timestamp;
+    time(&timestamp);
+    struct tm datetime = *localtime(&timestamp);
+
+    int year = datetime.tm_year + 1900;
+    int month = datetime.tm_mon + 1;
+
+    int recentMonthBegin = (year * 10000) + (month * 100);
+    return recentMonthBegin;
+}
+
+int DateMethods :: calculateRecentMonthLength(){
+    time_t timestamp;
+    time(&timestamp);
+    struct tm datetime = *localtime(&timestamp);
+
+    int year = datetime.tm_year + 1900;
+    int month = datetime.tm_mon + 1;
+
+    int recentMonthLength = calculateMonthLength(year, month);
+    return recentMonthLength;
+};

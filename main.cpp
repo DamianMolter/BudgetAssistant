@@ -10,7 +10,6 @@ int main() {
     //budgetMainApp.registerUser();
     budgetMainApp.displayAllUsers();
     budgetMainApp.loginUser();
-    budgetMainApp.showRecentMonthSummary();
     //budgetMainApp.addIncome();
     //budgetMainApp.addExpense();
     //budgetMainApp.displayAllIncomes();
