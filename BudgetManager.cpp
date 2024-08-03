@@ -20,17 +20,15 @@ void BudgetManager :: addExpense(string fileName) {
     lastOperationId++;
 }
 
-void BudgetManager :: showRecentMonthSummary() {
+void BudgetManager :: showSummary(int beginOfMonth, int endOfMonth){
 
-    int beginOfRecentMonth = DateMethods :: getRecentMonthBegin();
-    int endOfRecentMonth = beginOfRecentMonth + DateMethods :: calculateRecentMonthLength() + 1;
     float incomeSum = 0.00;
     float expenseSum = 0.00;
 
     cout << "==============================" << endl;
     cout << "WYKAZ PRZYCHODOW:" << endl;
     for (size_t i = 0; i < incomes.size(); i++) {
-        if(incomes[i].getDate() > beginOfRecentMonth && incomes[i].getDate() < endOfRecentMonth) {
+        if(incomes[i].getDate() > beginOfMonth && incomes[i].getDate() < endOfMonth) {
             displayOperation(i, incomes);
             incomeSum += incomes[i].getAmount();
         }
@@ -38,7 +36,7 @@ void BudgetManager :: showRecentMonthSummary() {
     cout << "==============================" << endl;
     cout << "WYKAZ WYDATKOW:" << endl;
     for (size_t j = 0; j < expenses.size(); j++) {
-        if(expenses[j].getDate() > beginOfRecentMonth && expenses[j].getDate() < endOfRecentMonth){
+        if(expenses[j].getDate() > beginOfMonth && expenses[j].getDate() < endOfMonth){
             displayOperation(j, expenses);
             expenseSum += expenses[j].getAmount();
         }
@@ -47,7 +45,30 @@ void BudgetManager :: showRecentMonthSummary() {
 
     cout << "Suma przychodow to: " << fixed << setprecision(2) << incomeSum << endl;
     cout << "Suma wydatkow to: " << expenseSum << endl;
-    cout << "Bilans za biezacy miesiac to: " << incomeSum - expenseSum << endl;
+    cout << "Bilans za wybrany okres to: " << incomeSum - expenseSum << endl;
+}
+
+void BudgetManager :: showRecentMonthSummary() {
+
+    int beginOfRecentMonth = DateMethods :: getRecentMonthBegin();
+    int endOfRecentMonth = beginOfRecentMonth + DateMethods :: calculateRecentMonthLength() + 1;
+
+    cout << "==============================" << endl;
+    cout << "BILANS ZA BIEZACY MIESIAC:" << endl << endl;
+
+    showSummary(beginOfRecentMonth, endOfRecentMonth);
+}
+
+void BudgetManager :: showLastMonthSummary(){
+
+    int beginOfLastMonth = DateMethods :: getLastMonthBegin();
+    int endOfLastMonth = beginOfLastMonth + DateMethods :: calculateLastMonthLength()+ 1;
+
+    cout << "==============================" << endl;
+    cout << "BILANS ZA POPRZEDNI MIESIAC:" << endl << endl;
+
+    showSummary(beginOfLastMonth, endOfLastMonth);
+
 }
 
 Operation BudgetManager :: giveNewOperationData(int loggedUserId) {

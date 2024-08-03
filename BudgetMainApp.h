@@ -25,6 +25,7 @@ public:
     void addIncome();
     void addExpense();
     void showRecentMonthSummary();
+    void showLastMonthSummary();
     void displayAllIncomes();
     void displayAllExpenses();
     void logoutUser();

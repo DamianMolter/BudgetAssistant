@@ -45,6 +45,7 @@
 - incomes : vector &lt;Operation&gt;
 - expenses : vector &lt;Operation&gt;
 - displayOperation() : void
+- showSummary() : void
 --
 - giveNewOperationData() : Operation
 --
@@ -350,7 +351,9 @@
 + loadTodayDate() : string
 + compareDates() : bool
 + getRecentMonthBegin() : int
-+ calculateRecentMonthLength() : int</panel_attributes>
++ calculateRecentMonthLength() : int
++ getLastMonthBegin() : int
++ calculateLastMonthLength() : int</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
