@@ -9,7 +9,7 @@ class Operation{
     int date;
     string userDate;
     string item;
-    string amount;
+    double amount;
 public:
     Operation(){
         id = 0;
@@ -19,12 +19,12 @@ public:
     int getDate();
     string getUserDate();
     string getItem();
-    string getAmount();
+    double getAmount();
 
     void setId(int newId);
     void setUserId(int newUserId);
     void setDate(int newDate);
     void setUserDate(string newUserDate);
     void setItem(string newItem);
-    void setAmount(string newAmount);
+    void setAmount(double newAmount);
 };

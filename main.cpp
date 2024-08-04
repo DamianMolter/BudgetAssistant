@@ -10,9 +10,9 @@ int main() {
     //budgetMainApp.registerUser();
     budgetMainApp.displayAllUsers();
     budgetMainApp.loginUser();
-    budgetMainApp.addIncome();
     //budgetMainApp.addExpense();
-    budgetMainApp.displayAllIncomes();
-    budgetMainApp.displayAllExpenses();
+    //budgetMainApp.addExpense();
+    //budgetMainApp.displayAllExpenses();
+    budgetMainApp.showCustomSummary();
 
 }
