@@ -39,6 +39,10 @@ void BudgetMainApp :: displayAllExpenses(){
     budgetManager->displayAllExpenses();
 }
 
+void BudgetMainApp :: changePassword(){
+    userManager.changePassword();
+}
+
 void BudgetMainApp :: logoutUser(){
     delete budgetManager;
     budgetManager = NULL;

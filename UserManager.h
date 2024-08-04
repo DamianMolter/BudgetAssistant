@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <vector>
+#include <windows.h>
 #include "UserFile.h"
 #include "Utils.h"
 
@@ -25,6 +26,7 @@ public:
     void registerUser();
     int loginUser();
     bool isUserLogged();
-    void displayAllUsers();
+    void displayAllUsers(); // test
+    void changePassword();
 
 };

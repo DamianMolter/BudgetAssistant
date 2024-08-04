@@ -29,6 +29,7 @@ public:
     void showCustomSummary();
     void displayAllIncomes();
     void displayAllExpenses();
+    void changePassword();
     void logoutUser();
     void displayAllUsers();
 

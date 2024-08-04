@@ -10,9 +10,7 @@ int main() {
     //budgetMainApp.registerUser();
     budgetMainApp.displayAllUsers();
     budgetMainApp.loginUser();
-    //budgetMainApp.addExpense();
-    //budgetMainApp.addExpense();
-    //budgetMainApp.displayAllExpenses();
-    budgetMainApp.showCustomSummary();
+    budgetMainApp.changePassword();
+    budgetMainApp.displayAllUsers();
 
 }
