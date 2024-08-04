@@ -103,3 +103,18 @@ bool UserManager :: isUserLogged() {
         return false;
     }
 }
+
+void UserManager :: changePassword(){
+    string newPassword;
+    cout << "Podaj nowe haslo: ";
+    newPassword = Utils :: loadLine();
+    cout << "Haslo zostalo pomyslnie zmienione." <<  endl;
+    system("pause");
+    for(size_t i = 0; i < users.size(); i++){
+        if(loggedUserId == users[i].getUserId()){
+            users[i].setPassword(newPassword);
+            break;
+        }
+    }
+    userFile.saveChangedPassword(loggedUserId,newPassword);
+}
