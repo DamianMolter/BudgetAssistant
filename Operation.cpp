@@ -15,7 +15,7 @@ string Operation :: getUserDate(){
 string Operation :: getItem(){
     return item;
 }
-float Operation :: getAmount(){
+double Operation :: getAmount(){
     return amount;
 }
 
@@ -34,6 +34,6 @@ void Operation :: setUserDate(string newUserDate){
 void Operation :: setItem(string newItem){
     this -> item = newItem;
 }
-void Operation :: setAmount(float newAmount){
+void Operation :: setAmount(double newAmount){
     this -> amount = newAmount;
 }

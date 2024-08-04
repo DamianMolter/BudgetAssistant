@@ -20,6 +20,7 @@ class BudgetManager {
     Operation giveNewOperationData(int loggedUserId);
     void displayOperation(size_t index, vector <Operation> operations);
     void showSummary(int beginOfMonth, int endOfMonth);
+    string insertDate();
 
 public:
     BudgetManager(int loggedUserId, string incomesFileName, string expensesFileName): LOGGED_USER_ID(loggedUserId) {
@@ -34,6 +35,7 @@ public:
     void addExpense(string fileName);
     void showRecentMonthSummary();
     void showLastMonthSummary();
+    void showCustomSummary();
     void displayAllIncomes();   //test
     void displayAllExpenses();  //test
 

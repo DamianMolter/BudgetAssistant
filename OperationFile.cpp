@@ -29,7 +29,7 @@ vector <Operation> OperationFile :: loadOperations(string fileName, int loggedUs
             operationFile.FindElem("Item");
             operation.setItem(operationFile.GetData());
             operationFile.FindElem("Amount");
-            operation.setAmount(stof(operationFile.GetData()));
+            operation.setAmount(stod(operationFile.GetData()));
             operationFile.OutOfElem();
             operations.push_back(operation);
         }

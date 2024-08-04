@@ -22,8 +22,8 @@ void BudgetManager :: addExpense(string fileName) {
 
 void BudgetManager :: showSummary(int beginOfMonth, int endOfMonth){
 
-    float incomeSum = 0.00;
-    float expenseSum = 0.00;
+    double incomeSum = 0.00;
+    double expenseSum = 0.00;
 
     cout << "==============================" << endl;
     cout << "WYKAZ PRZYCHODOW:" << endl;
@@ -71,6 +71,32 @@ void BudgetManager :: showLastMonthSummary(){
 
 }
 
+void BudgetManager :: showCustomSummary(){
+
+    string input;
+    cout << "Wprowadz date poczatkowa: " << endl;
+    input = insertDate();
+    int customPeriodBegin = DateMethods :: convertDateToNumericForm(input);
+
+    cout << "Wprowadz date koncowa: " << endl;
+    input = insertDate();
+    int customPeriodEnd = DateMethods :: convertDateToNumericForm(input);
+
+    showSummary( customPeriodBegin, customPeriodEnd);
+}
+
+string BudgetManager :: insertDate(){
+
+    string input;
+    cout << "Podaj date: ";
+        input = Utils :: loadLine();
+        while(!DateMethods :: isDateCorrect(input)) {
+            cout << "Data jest nieprawidlowa! Podaj ponownie date!" << endl;
+            input = Utils :: loadLine();
+        }
+    return input;
+}
+
 Operation BudgetManager :: giveNewOperationData(int loggedUserId) {
     Operation operation;
     string input;
@@ -83,17 +109,8 @@ Operation BudgetManager :: giveNewOperationData(int loggedUserId) {
     if(DateMethods :: wantedTodayDate()) {
         input = DateMethods :: loadTodayDate();
     } else {
-
-        cout << "Podaj date: ";
-        input = Utils :: loadLine();
-        while(!DateMethods :: isDateCorrect(input)) {
-            cout << "Data jest nieprawidlowa! Podaj ponownie date!" << endl;
-            input = Utils :: loadLine();
-        }
-
+        input = insertDate();
     }
-
-
     operation.setUserDate(input);
     date = DateMethods :: convertDateToNumericForm(input);
     operation.setDate(date);
@@ -105,7 +122,7 @@ Operation BudgetManager :: giveNewOperationData(int loggedUserId) {
     cout << "Podaj kwote: ";
     input = Utils:: loadLine();
     input = Utils :: changeComaToDot(input);
-    operation.setAmount(stof(input));
+    operation.setAmount(stod(input));
 
     return operation;
 }

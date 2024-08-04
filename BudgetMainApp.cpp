@@ -27,6 +27,10 @@ void BudgetMainApp :: showLastMonthSummary(){
     budgetManager->showLastMonthSummary();
 }
 
+void BudgetMainApp :: showCustomSummary(){
+    budgetManager->showCustomSummary();
+}
+
 void BudgetMainApp :: displayAllIncomes(){
     budgetManager->displayAllIncomes();
 }
