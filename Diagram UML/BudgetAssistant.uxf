@@ -64,7 +64,7 @@
       <x>477</x>
       <y>162</y>
       <w>252</w>
-      <h>225</h>
+      <h>243</h>
     </coordinates>
     <panel_attributes>UserManager
 --
@@ -80,6 +80,7 @@
 + UserManager()
 + registerUser() : void
 + loginUser() : void
++ displayGreetings() : void
 + changePassword() : void
 + logoutUser() : void
 + isUserLogged() : bool</panel_attributes>
@@ -115,7 +116,8 @@
 + UserFile(string userFileName)
 + addUserToFile() : void
 + loadUsersFromFile() : vector &lt;User&gt;
-+ saveChangedPassword() : void</panel_attributes>
++ saveChangedPassword() : void
++ getLoggedUserIdentity() : string</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -226,12 +228,12 @@
     <id>Relation</id>
     <coordinates>
       <x>594</x>
-      <y>378</y>
+      <y>396</y>
       <w>27</w>
-      <h>54</h>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
