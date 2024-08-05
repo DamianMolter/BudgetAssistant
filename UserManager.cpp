@@ -104,6 +104,13 @@ bool UserManager :: isUserLogged() {
     }
 }
 
+void UserManager :: displayGreetings(){
+
+    string userIdentity = userFile.getLoggedUserIdentity(loggedUserId);
+    cout << "Witaj " << userIdentity << "!" << endl;
+
+}
+
 void UserManager :: changePassword(){
     string newPassword;
     cout << "Podaj nowe haslo: ";
@@ -117,4 +124,8 @@ void UserManager :: changePassword(){
         }
     }
     userFile.saveChangedPassword(loggedUserId,newPassword);
+}
+
+void UserManager :: userLogout(){
+    loggedUserId = 0;
 }
