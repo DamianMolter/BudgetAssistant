@@ -41,3 +41,4 @@ obj/
 *.cscope_file_list
 *.xml
 sciagawka.cpp
+metody xml.cpp
