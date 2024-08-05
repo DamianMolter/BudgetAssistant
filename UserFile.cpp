@@ -51,6 +51,28 @@ vector <User> UserFile :: loadUsersFromFile(string userFileName) {
 
 };
 
+string UserFile :: getLoggedUserIdentity(int loggedUserId){
+    CMarkup userFile;
+    string name, surname;
+    userFile.Load(USER_FILE_NAME);
+    userFile.FindElem();
+    userFile.IntoElem();
+    while(userFile.FindElem("User")){
+        userFile.IntoElem();
+        userFile.FindElem("userId");
+        int userId = stoi(userFile.GetData());
+        if(userId == loggedUserId){
+            userFile.FindElem("name");
+            name = userFile.GetData();
+            userFile.FindElem("surname");
+            surname = userFile.GetData();
+            break;
+        }
+        userFile.OutOfElem();
+    }
+    return name + " " + surname;
+}
+
 void UserFile :: saveChangedPassword(int loggedUserId, string newPassword) {
 
     CMarkup userFile;

@@ -2,6 +2,7 @@
 #include <iostream>
 #include "UserManager.h"
 #include "BudgetManager.h"
+#include "Utils.h"
 
 using namespace std;
 
@@ -22,6 +23,9 @@ public:
 
     void registerUser();
     void loginUser();
+    bool isUserLogged();
+    char pickOptionUserMenu();
+    char pickOptionMainMenu();
     void addIncome();
     void addExpense();
     void showRecentMonthSummary();

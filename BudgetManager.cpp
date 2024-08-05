@@ -46,6 +46,7 @@ void BudgetManager :: showSummary(int beginOfMonth, int endOfMonth){
     cout << "Suma przychodow to: " << fixed << setprecision(2) << incomeSum << endl;
     cout << "Suma wydatkow to: " << expenseSum << endl;
     cout << "Bilans za wybrany okres to: " << incomeSum - expenseSum << endl;
+    system("pause");
 }
 
 void BudgetManager :: showRecentMonthSummary() {
