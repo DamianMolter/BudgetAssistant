@@ -11,27 +11,23 @@ vector <Operation> OperationFile :: loadOperations(string fileName, int loggedUs
     if(success) {
         operationFile.FindElem();
         operationFile.IntoElem();
-        while(operationFile.FindElem("Operation")){
-            operationFile.IntoElem();
-            operationFile.FindElem("UserId");
-            if(stoi(operationFile.GetData()) == loggedUserId){
-                operation.setUserId(stoi(operationFile.GetData()));
-            } else {
-                operationFile.OutOfElem();
-                continue;
+        while(operationFile.FindElem("Operation")) {
+            operationFile.FindChildElem("UserId");
+            int checkedUserId = stoi(operationFile.GetChildData());
+            if( checkedUserId == loggedUserId) {
+                operation.setUserId(checkedUserId);
+                operationFile.ResetChildPos();
+                operationFile.FindChildElem("Id");
+                operation.setId(stoi(operationFile.GetChildData()));
+                operationFile.FindChildElem("UserDate");
+                operation.setUserDate(operationFile.GetChildData());
+                operation.setDate(DateMethods ::convertDateToNumericForm(operation.getUserDate()));
+                operationFile.FindChildElem("Item");
+                operation.setItem(operationFile.GetChildData());
+                operationFile.FindChildElem("Amount");
+                operation.setAmount(stod(operationFile.GetChildData()));
+                operations.push_back(operation);
             }
-            operationFile.FindElem("Id");
-            operation.setId(stoi(operationFile.GetData()));
-            operationFile.FindElem("Date");
-            operation.setDate(stoi(operationFile.GetData()));
-            operationFile.FindElem("UserDate");
-            operation.setUserDate(operationFile.GetData());
-            operationFile.FindElem("Item");
-            operation.setItem(operationFile.GetData());
-            operationFile.FindElem("Amount");
-            operation.setAmount(stod(operationFile.GetData()));
-            operationFile.OutOfElem();
-            operations.push_back(operation);
         }
 
 
@@ -55,12 +51,11 @@ void OperationFile :: addOperationToFile(Operation operation, string fileName) {
     operationFile.FindElem();
     operationFile.IntoElem();
     operationFile.AddElem("Operation");
-    operationFile.AddChildElem("UserId", operation.getUserId());
     operationFile.AddChildElem("Id", operation.getId());
-    operationFile.AddChildElem("Date", operation.getDate());
+    operationFile.AddChildElem("UserId", operation.getUserId());
     operationFile.AddChildElem("UserDate", operation.getUserDate());
     operationFile.AddChildElem("Item", operation.getItem());
-    operationFile.AddChildElem("Amount", operation.getAmount());
+    operationFile.AddChildElem("Amount", to_string(operation.getAmount()));
     operationFile.OutOfElem();
     operationFile.Save(fileName);
 }

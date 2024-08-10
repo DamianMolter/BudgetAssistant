@@ -4,20 +4,20 @@ void BudgetManager :: addIncome(string fileName) {
 
     system("cls");
     cout << ">>> DODAWANIE NOWEGO PRZYCHODU <<<" << endl << endl;
-    Operation operation = giveNewOperationData(LOGGED_USER_ID);
+    Operation operation = giveNewOperationData(LOGGED_USER_ID, lastIncomeId);
     incomes.push_back(operation);
-    operationFile.addOperationToFile(operation, fileName);
-    lastOperationId++;
+    incomeFile.addOperationToFile(operation, fileName);
+    lastIncomeId++;
 }
 
 void BudgetManager :: addExpense(string fileName) {
 
     system("cls");
     cout << ">>> DODAWANIE NOWEGO PRZYCHODU <<<" << endl << endl;
-    Operation operation = giveNewOperationData(LOGGED_USER_ID);
+    Operation operation = giveNewOperationData(LOGGED_USER_ID, lastExpenseId);
     expenses.push_back(operation);
-    operationFile.addOperationToFile(operation, fileName);
-    lastOperationId++;
+    expenseFile.addOperationToFile(operation, fileName);
+    lastExpenseId++;
 }
 
 void BudgetManager :: showSummary(int beginOfMonth, int endOfMonth){
@@ -98,7 +98,7 @@ string BudgetManager :: insertDate(){
     return input;
 }
 
-Operation BudgetManager :: giveNewOperationData(int loggedUserId) {
+Operation BudgetManager :: giveNewOperationData(int loggedUserId, int lastOperationId) {
     Operation operation;
     string input;
     int date;

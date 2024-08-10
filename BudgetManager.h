@@ -13,20 +13,23 @@ using namespace std;
 class BudgetManager {
 
     const int LOGGED_USER_ID;
-    int lastOperationId;
-    OperationFile operationFile;
+    int lastIncomeId;
+    int lastExpenseId;
+    OperationFile incomeFile;
+    OperationFile expenseFile;
     vector <Operation> incomes;
     vector <Operation> expenses;
-    Operation giveNewOperationData(int loggedUserId);
+    Operation giveNewOperationData(int loggedUserId, int lastOperationId);
     void displayOperation(size_t index, vector <Operation> operations);
     void showSummary(int beginOfMonth, int endOfMonth);
     string insertDate();
 
 public:
     BudgetManager(int loggedUserId, string incomesFileName, string expensesFileName): LOGGED_USER_ID(loggedUserId) {
-        lastOperationId = operationFile.getLastId(incomesFileName, expensesFileName);
-        incomes = operationFile.loadOperations(incomesFileName, LOGGED_USER_ID);
-        expenses = operationFile.loadOperations(expensesFileName, LOGGED_USER_ID);
+        lastIncomeId = incomeFile.getLastIdFromFile(incomesFileName);
+        lastExpenseId = expenseFile.getLastIdFromFile(expensesFileName);
+        incomes = incomeFile.loadOperations(incomesFileName, LOGGED_USER_ID);
+        expenses = expenseFile.loadOperations(expensesFileName, LOGGED_USER_ID);
         sort(incomes.begin(), incomes.end(), DateMethods :: compareDates);
         sort(expenses.begin(), expenses.end(), DateMethods :: compareDates);
     };
