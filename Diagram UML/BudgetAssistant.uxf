@@ -40,8 +40,10 @@
     <panel_attributes>BudgetManager
 --
 - LOGGED_IN_USER_ID : integer
-- lastOperationId : int
-- operationFile : OperationFile
+- lastIncomeId : int
+- lastExpenseId : int
+- incomeFile : OperationFile
+- expenseFile : OperationFile
 - incomes : vector &lt;Operation&gt;
 - expenses : vector &lt;Operation&gt;
 --
@@ -137,7 +139,7 @@
 --
 # File()
 # getFileName() : string
-# getLastId() : integer
+# getLastIdFromFile() : integer
 </panel_attributes>
     <additional_attributes/>
   </element>
